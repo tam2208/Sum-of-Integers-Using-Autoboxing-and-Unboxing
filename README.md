@@ -1,108 +1,131 @@
-How it Works
+📌 Nimbus Java Assignment
 
-Creates a Student object.
+This project demonstrates Java concepts such as Autoboxing, Unboxing, Serialization, File Handling, and Efficient Data Processing.
+It is a menu-driven console application with three main parts.
 
-Serialization: Writes it into student.ser.
+🚀 Features
+1. Sum of Integers Using Autoboxing and Unboxing
 
-Deserialization: Reads it back from the file.
+Accepts multiple integer inputs as strings.
 
-Prints details to confirm successful reconstruction.
+Uses Integer.parseInt() for parsing.
 
-📌 Example Output
-Student object has been serialized and saved to student.ser
+Stores them in ArrayList<Integer>.
 
-Deserialized Student object:
-Student ID: 101
+Demonstrates:
+
+Autoboxing (int → Integer) when adding to the list.
+
+Unboxing (Integer → int) during summation.
+
+Example:
+
+Enter integers (type 'stop' to finish):
+10
+20
+30
+stop
+The sum of entered integers is: 60
+
+2. Student Serialization and Deserialization
+
+Student class implements Serializable.
+
+Program:
+
+Accepts Student ID, Name, and Grade from user.
+
+Serializes the object to student.ser.
+
+Deserializes the object from file.
+
+Displays the student details.
+
+Example:
+
+Enter Student ID: 101
+Enter Student Name: Alice
+Enter Grade: A
+Student object serialized to student.ser
+Deserialized Student:
+StudentID: 101
 Name: Alice
 Grade: A
 
+3. Employee Management System Using File Handling
 
-Would you like me to also add multiple students serialization (like saving an array/list of Student objects at once) so you can handle more than one student?
+Menu-driven system for managing employees:
 
-You said:
-readme
-ChatGPT said:
+Add Employee
 
-Got it 👍 Here’s a README.md you can use for your project. It explains the purpose, usage, and how to run the program.
+Appends new employee record to employees.txt.
 
-Java Serialization Example
+Display All Employees
 
-This project demonstrates how to use Java Serialization and Deserialization to save and retrieve an object.
-Serialization allows you to persist the state of an object into a file or transmit it over a network. Deserialization reconstructs the object back from the saved state.
+Reads from file and prints all records.
 
-🚀 Features
+Back to Main Menu
 
-Defines a Student class with fields: studentID, name, and grade.
+Uses BufferedWriter/BufferedReader for file handling.
 
-Implements the Serializable interface to allow object serialization.
+Example:
 
-Uses ObjectOutputStream to serialize and save the object to a file.
+--- Employee Management ---
+1. Add Employee
+2. Display All Employees
+3. Back to Main Menu
 
-Uses ObjectInputStream to deserialize and read the object back.
 
-Prints the student details after deserialization to confirm success.
+After adding two employees:
 
-📂 Project Structure
-SerializationDemo.java   # Main program (serialization + deserialization)
-student.ser              # Generated file after serialization
+--- Employee Records ---
+ID: 201, Name: Bob, Designation: Manager, Salary: 75000.0
+ID: 202, Name: Carol, Designation: Developer, Salary: 60000.0
 
-📝 Example Code (Main Parts)
-Student Class
-class Student implements Serializable {
-    private static final long serialVersionUID = 1L;
-    private int studentID;
-    private String name;
-    private String grade;
+🛠️ Technologies Used
 
-    public Student(int studentID, String name, String grade) {
-        this.studentID = studentID;
-        this.name = name;
-        this.grade = grade;
-    }
+Java SE
 
-    public void display() {
-        System.out.println("Student ID: " + studentID);
-        System.out.println("Name: " + name);
-        System.out.println("Grade: " + grade);
-    }
-}
+Concepts:
 
-Serialization + Deserialization
-// Serialize
-FileOutputStream fileOut = new FileOutputStream("student.ser");
-ObjectOutputStream out = new ObjectOutputStream(fileOut);
-out.writeObject(student);
+Autoboxing & Unboxing
 
-// Deserialize
-FileInputStream fileIn = new FileInputStream("student.ser");
-ObjectInputStream in = new ObjectInputStream(fileIn);
-Student s2 = (Student) in.readObject();
+Serialization / Deserialization
+
+File Handling (Text Files)
+
+Menu-driven console interaction with Scanner
+
+📂 File Structure
+NimbusAssignment.java    # Main program file
+student.ser              # Serialized student object (auto-created)
+employees.txt            # Employee records (auto-created/updated)
 
 ▶️ How to Run
 
 Compile the program:
 
-javac SerializationDemo.java
+javac NimbusAssignment.java
 
 
-Run the program:
+Run:
 
-java SerializationDemo
+java NimbusAssignment
 
 
-Expected output:
+Follow on-screen menu options.
 
-Student object has been serialized and saved to student.ser
+✅ Sample Run
+=== Nimbus Java Assignment ===
+1. Sum of Integers (Autoboxing/Unboxing)
+2. Student Serialization/Deserialization
+3. Employee Management System (File Handling)
+4. Exit
+Enter your choice: 1
 
-Deserialized Student object:
-Student ID: 101
-Name: Alice
-Grade: A
-
-📌 Notes
-
-serialVersionUID ensures compatibility between serialized and deserialized objects.
-
-By default, all fields are serialized. To skip a field, mark it as transient.
-
-The .ser file (student.ser) contains the serialized binary data, not human-readable text.
+Enter integers (type 'stop' to finish):
+5
+15
+20
+stop
+The sum of entered integers is: 40
